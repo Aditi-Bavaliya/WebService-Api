@@ -73,9 +73,11 @@
         password: $('#password').val(),
       };
 
+      const queryParams = $.param(userData);
+
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:3000/api/saveUser',
+        url: 'http://localhost:3000/api/saveUser' + queryParams,
         contentType: 'application/json',
         data: JSON.stringify(userData),
         success: function(response) {
