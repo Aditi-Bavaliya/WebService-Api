@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 
-mongoose.connect('mongodb+srv://aditibavaliya8324:18Mj3tonOnhU8ptN@displayuser.qi0i1bu.mongodb.net/');//mongodb://localhost:27017/mydatabase
+mongoose.connect('mongodb://localhost:27017/mydatabase');
 
 const userSchema = new mongoose.Schema({
   firstName: String,
