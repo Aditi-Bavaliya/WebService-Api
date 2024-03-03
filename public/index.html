@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="validation.js"></script>
+</head>
+<body>
+    <div class="heading">
+    <h2>User Registration Form</h2>
+    <button><a href="./displayusers.html" target="_blank">Display Users</a> </button>
+    <!--<button><a href="http://localhost:3000/api/getUsers" target="_blank">Display Users</a> </button>-->
+    </div>
+    <form id="userForm">
+        
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="mobileNo">Mobile No:</label>
+        <input type="number" id="mobileNo" name="mobileNo" pattern="[0-9]{10}" placeholder="Enter 10 digits" required>
+        <span class="error-message" id="mobileNoError"></span>
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-message" id="emailError"></span>
+
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+
+        <label for="loginId">Login ID:</label>
+        <input type="text" id="loginId" name="loginId" title="Only letters, numbers, and special characters (@, ., -) are allowed" placeholder="8 characters alphanumeric" required>
+        <span class="error-message" id="loginIdError"></span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" title="Minimum eight characters, at least one letter, one number, and one special character" required>
+        <span class="error-message" id="passwordError"></span>
+        
+        <div>
+          <button type="submit" onclick="validateAndSave()">Submit</button>
+        <button type="reset">Reset</button>
+        </div>
+
+        
+    </form>
+
+  <script>
+    function saveUser() {
+      const userData = {
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
+        mobileNo: $('#mobileNo').val(),
+        email: $('#email').val(),
+        street: $('#street').val(),
+        city: $('#city').val(),
+        state: $('#state').val(),
+        country: $('#country').val(),
+        loginId: $('#loginId').val(),
+        password: $('#password').val(),
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/api/saveUser',
+        contentType: 'application/json',
+        data: JSON.stringify(userData),
+        success: function(response) {
+          alert('User saved successfully!');
+          //window.location.href = 'displayusers.html';
+        },
+        error: function(error) {
+          console.error(error);
+          alert('Error saving user.');
+        },
+      });
+    }
+  </script>
+    
+</body>
+</html>
