@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
+app.get('/displayusers', (req, res) => {
+  res.render('displayusers.html');
+});
+
+
 //mongodb+srv://<username>:<password>@displayuser.qi0i1bu.mongodb.net/?retryWrites=true&w=majority
 mongoose.connect('mongodb+srv://user:CiAioeSGn2TTFbUI@displayuser.qi0i1bu.mongodb.net/MyDatabase?retryWrites=true&w=majority').then(()=>{
   console.log("Connected to atlas db");
