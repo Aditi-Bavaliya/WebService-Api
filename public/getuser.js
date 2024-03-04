@@ -17,7 +17,9 @@ function saveUser() {
       url: 'http://localhost:3000/api/saveUser',
       contentType: 'application/json',
       data: JSON.stringify(userData),
+     
       success: function(response) {
+        response.json({ success: true, message: 'User added successfully!' }),
         alert('User saved successfully!');
       },
       error: function(error) {
@@ -25,7 +27,7 @@ function saveUser() {
         alert('Error saving user.');
       },
     });
-  }
+   }
 
   $(document).ready(function() {
     $.ajax({

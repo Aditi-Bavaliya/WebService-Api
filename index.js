@@ -49,7 +49,7 @@ app.post('/api/saveUser', async (req, res) => {
     newUser.creationTime = new Date();
     newUser.lastUpdatedOn = new Date();
     await newUser.save();
-    res.json({ success: true });
+    res.json({ success: true, message: 'User added successfully!'});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

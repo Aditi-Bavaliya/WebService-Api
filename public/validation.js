@@ -1,20 +1,8 @@
 function validateAndSave() {
-    const firstname = document.getElementById('firstname');
-    const lastname = document.getElementById('lastname');
     const mobileNoInput = document.getElementById('mobileNo');
     const emailInput = document.getElementById('email');
-    const street = document.getElementById('street');
-    const city  = document.getElementById('city');
-    const state = document.getElementById('state');
-    const country = document.getElementById('country');
     const loginIdInput = document.getElementById('loginId');
     const passwordInput = document.getElementById('password');
-
-    if (firstname.trim() === '' || lastname.trim() === '' || street.trim() === '' || city.trim() === '' || state.trim() === '' ||
-    country.trim() === '') {
-    alert('Please fill in all fields.');
-    return;
-  }
 
     const mobileNoPattern = /^\d{10}$/;
     if (!mobileNoPattern.test(mobileNoInput.value)) {
