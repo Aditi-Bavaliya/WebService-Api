@@ -2,18 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const path = require('path');
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  const indexPath = path.join(__dirname, 'public', 'index.html');
+  res.sendFile(indexPath);
+  //res.render('index.html');
 });
 
 app.get('/displayusers', (req, res) => {
