@@ -10,13 +10,27 @@ const PORT = process.env.PORT || 3000;
 // app.use(express.static('public'));
 
 // app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 
+// Set up the view engine
+app.set('view engine', 'ejs');
 
+// Define routes
 app.get('/', (req, res) => {
-  const indexPath = path.join(__dirname, 'public', 'index.html');
-  res.sendFile(indexPath);
-  //res.render('index.html');
+  // Render the index.html file
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+app.get('/displayusers', (req, res) => {
+  // Render the displayusers.html file
+  res.sendFile(path.join(__dirname, 'public', 'displayusers.html'));
+});
+
+// app.get('/', (req, res) => {
+//   const indexPath = path.join(__dirname, 'public', 'index.html');
+//   res.sendFile(indexPath);
+//   //res.render('index.html');
+// });
 
 app.get('/displayusers', (req, res) => {
   res.render('displayusers.html');
