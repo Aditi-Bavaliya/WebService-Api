@@ -34,8 +34,6 @@ function validateAndSave() {
     }else{
         document.getElementById('passwordError').textContent='';
     }
-
-   
     saveUser();
 }
 

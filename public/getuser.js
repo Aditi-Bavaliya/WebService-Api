@@ -19,7 +19,7 @@ function saveUser() {
       data: JSON.stringify(userData),
      
       success: function(response) {
-        response.json({ success: true, message: 'User added successfully!' }),
+        response.json({ success: true, message: 'User added successfully!' })
         alert('User saved successfully!');
       },
       error: function(error) {
