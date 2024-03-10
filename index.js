@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 // app.use(express.static('public'));
 
 // app.set('view engine', 'ejs');
@@ -38,7 +38,10 @@ app.get('/displayusers', (req, res) => {
 
 
 //mongodb+srv://<username>:<password>@displayuser.qi0i1bu.mongodb.net/?retryWrites=true&w=majority
-mongoose.connect('mongodb+srv://user:FQaTj8BVIIVnDC1b@displayuser.qi0i1bu.mongodb.net/MyDatabase?retryWrites=true&w=majority').then(()=>{
+mongoose.connect('mongodb+srv://user:bQOYWIRYMPEsVQBR@displayuser.qi0i1bu.mongodb.net/MyDatabase?retryWrites=true&w=majority',{
+  UseNewUrlParser: true, 
+  UseUnifiedTopology: true
+}).then(()=>{
   console.log("Connected to atlas db");
 })
 .catch((e)=>{
@@ -64,7 +67,7 @@ const User = mongoose.model('User', userSchema);
 
 app.use(bodyParser.json());
 app.use(cors());
-app.post('/api/saveUser', async (req, res) => {
+app.post('/saveUser', async (req, res) => {
   try {
     const newUser = new User(req.body);
     newUser.creationTime = new Date();
@@ -76,7 +79,7 @@ app.post('/api/saveUser', async (req, res) => {
   }
 });
 
-app.get('/api/getUsers', async (req, res) => {
+app.get('/getUsers', async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
