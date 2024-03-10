@@ -2,10 +2,12 @@
   "name": "task-1-web-service-api-using-nodejs",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://aditi-bavaliya.github.io/WebService-Api/npm ci",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "env-cmd -f .env.staging npm run build"
   },
   "keywords": [],
   "author": "",
