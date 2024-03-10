@@ -14,7 +14,7 @@ function saveUser() {
 
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:2000/saveUser',
+      url: 'http://localhost:3000/saveUser',
       contentType: 'application/json',
       data: JSON.stringify(userData),
      
@@ -32,7 +32,7 @@ function saveUser() {
   $(document).ready(function() {
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:2000/getUsers',
+      url: 'http://localhost:3000/getUsers',
       success: function(users) {
         const userList = $('#userList');
         userList.empty();
