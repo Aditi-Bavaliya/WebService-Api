@@ -36,8 +36,6 @@ app.get('/displayusers', (req, res) => {
   res.render('displayusers.html');
 });
 
-
-//mongodb+srv://<username>:<password>@displayuser.qi0i1bu.mongodb.net/?retryWrites=true&w=majority
 mongoose.connect('mongodb+srv://user:bQOYWIRYMPEsVQBR@displayuser.qi0i1bu.mongodb.net/MyDatabase?retryWrites=true&w=majority',{
   UseNewUrlParser: true, 
   UseUnifiedTopology: true
@@ -46,7 +44,7 @@ mongoose.connect('mongodb+srv://user:bQOYWIRYMPEsVQBR@displayuser.qi0i1bu.mongod
 })
 .catch((e)=>{
   console.log(e);
-});//mongodb://localhost:27017/mydatabase
+});
 
 const userSchema = new mongoose.Schema({
   firstName: String,

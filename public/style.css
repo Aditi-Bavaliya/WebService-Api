@@ -17,6 +17,7 @@ h2{
     color:rgb(31, 126, 189);
     padding-left: 43%;
     
+    
 } 
 .heading a{
    text-decoration-line: none;
@@ -42,9 +43,47 @@ h2{
     color: #000;
     background-color:rgba(11, 129, 233, 0.674) ;
 }
+
+@media only screen and (max-width: 600px) {
+    .heading {
+        flex-direction: column;
+        align-items: center;
+        padding: auto;
+    }
+
+    h2,
+    .heading button {
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width: 759px) {
+    .heading {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    h2,
+    .heading button {
+        margin-top: 10px;
+        margin-left: -17px;
+    }
+}
+@media only screen and (max-width: 503px) {
+    .heading {
+        flex-direction: column;
+        align-items: center;
+        padding: auto;
+    }
+
+    h2,
+    .heading button {
+        margin-top: 10px;
+    }
+}
 form {
     display: block;
-    margin: 2rem 35rem;
+    margin: auto;
     background-color: #fff;
     padding: 25px;
     border-radius: 8px;
