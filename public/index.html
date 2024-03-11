@@ -75,7 +75,7 @@
 
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:3000/saveUser',
+        url: 'https://web-service-api.vercel.app/saveUser',
         contentType: 'application/json',
         data: JSON.stringify(userData),
         success: function(response) {
@@ -105,7 +105,7 @@
 
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/saveUser',
+      url: 'https://web-service-api.vercel.app/saveUser',
       contentType: 'application/json',
       data: JSON.stringify(userData),
       success: function(response) {
@@ -121,7 +121,7 @@
   $(document).ready(function() {
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/getUsers',
+      url: 'https://web-service-api.vercel.app/getUsers',
       success: function(users) {
         const userList = $('#userList');
         userList.empty();
